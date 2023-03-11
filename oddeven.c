@@ -7,26 +7,30 @@ int main()
 	int n;
 	printf("Enter number limit : ");
 	scanf("%d",&n);
-	int odds=0;
-	int evens=0;
+	int oddsum=0;
+	int evensum=0;
 	pid_t id =fork();
 	if(id>0)
 	{
+		printf("___Parent Prcocess___");
+		printf("PID :  %d\n",getpid());
 		for(int i=1;i<n;i=i+2)
-			{odds+=i;}
-		printf("sum of odd numbers till %d is %d\n",n,odds);
-		printf("PID of parent process is %d\n",getpid());
+			{oddssum+=i;}
+		printf("sum :- %d\n",n,oddsum);
+		
 	}
 	else if(id==0)
 	{
+		Printf("___Child Process___");
+		printf("PID : %d\n",getpid());
 		for(int i=0;i<n;i=i+2)
-			{evens+=i;}
-		printf("sum of odd numbers till %d is %d\n",n,evens);
-		printf("PID of child process is %d\n",getpid());
+			{evensum+=i;}
+		printf("sum :- %d\n",n,evensum);
+		
 	}
 	else
 	{
-		printf("failed");
+		printf("ERROR !! ERROR !!");
 	}
 	return 0;
 }
