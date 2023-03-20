@@ -4,11 +4,9 @@
 #include<sys/types.h>
 int main()
 {
-	int n;
+	int n, oddsum=0, evensum=0;
 	printf("Enter number limit : ");
 	scanf("%d",&n);
-	int oddsum=0;
-	int evensum=0;
 	pid_t id =fork();
 	if(id>0)
 	{
@@ -17,7 +15,6 @@ int main()
 		for(int i=1;i<n;i=i+2)
 			{oddssum+=i;}
 		printf("sum :- %d\n",n,oddsum);
-		
 	}
 	else if(id==0)
 	{
