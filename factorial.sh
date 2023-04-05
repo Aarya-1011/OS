@@ -6,4 +6,4 @@ do
 	fact=$(($fact * $num))
 	num=$(($num - 1))
 done
-echo "Factorial is $fact"
+echo "Factorial of $num is $fact"
