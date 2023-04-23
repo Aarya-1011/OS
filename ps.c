@@ -11,13 +11,13 @@ int main()
 	float tsum=0, wsum=0;
 	printf("Enter number of processes : ");
 	scanf("%d", &n);
-	int a[n][5];
+	int a[n][6];
 	
 	printf("________Enter priority and burst time of each process________ ");
 	for(i=0; i<n; i++)
 	{
 		printf("\nPriority of process %d : ",i);
-		scanf("%d", &a[i][1]);
+		scanf("%d", &a[i][6]);
 		printf("\nBurst time of process %d : ",i);
 		scanf("%d", &a[i][2]);
 	}
@@ -28,7 +28,7 @@ int main()
 			if(a[j][1]<a[j+1][1])
 			{
 				swap(&a[j][0], &a[j+1][0]);
-				swap(&a[j][1], &a[j+1][1]);
+				swap(&a[j][6], &a[j+1][6]);
 				swap(&a[j][2], &a[j+1][2]);
 			}
 		}
@@ -40,7 +40,7 @@ int main()
 	}
 	for(i=0; i<n; i++)
 	{
-		a[i][4]=a[i][3]-a[i][1];
+		a[i][4]=a[i][3];
 		a[i][5]=a[i][4]-a[i][2];
 	}
 	printf("Process\t   priority\t   burst time\t   T.AT\t   W.T\n");
@@ -50,6 +50,7 @@ int main()
 		tsum=tsum+a[i][4];
 		wsum=wsum+a[i][5];
 	}
+	tsum = tsum / n;
 	wsum = wsum / n;
 	printf("\nAverage turn around = %0.2f", tsum);
 	printf("\nAverage waiting time = %0.2f", wsum);
